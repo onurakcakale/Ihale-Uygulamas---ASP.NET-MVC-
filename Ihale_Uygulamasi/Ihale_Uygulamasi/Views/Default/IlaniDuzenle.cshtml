@@ -1,0 +1,93 @@
+﻿@model Ihale_Uygulamasi.Models.ihale_tablosu
+
+@{
+    ViewBag.Title = "IlaniDuzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+
+    <div class="iletisim" style="padding-bottom: 10px">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px;"><b>İlanlarım</b></h1></div>
+
+        <div class="orta">
+            <div class="container-fluid" id="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-horizontal">
+
+                            <div align="right">
+                                <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px;"><a href="@Url.Action("Ilanlarim", "Default")">Geri Dön</a></h1>
+                            </div>
+
+                            <hr />
+                            @Html.HiddenFor(model => model.musteri_id, new { @Value = Session["id"] })
+                            @Html.HiddenFor(model => model.urun_fotografi, new { htmlAttributes = new { @class = "form-control" } })
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">Ürün Adı:</p>
+                                <div style="width: 60%; float: left; padding-left: 10px" align="left">
+                                    @Html.EditorFor(model => model.urun_adi, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">Ürün Kategorisi:</p>
+                                <div style="width: 60%; float: left; padding-left: 10px" align="left">
+                                    @Html.EditorFor(model => model.urun_kategorisi, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">Ürün Detayları:</p>
+                                <div style="width: 60%; float: left; padding-left: 10px" align="left">
+                                    @Html.TextAreaFor(model => model.aciklama, new { @class = "form-control", cols = "80", rows = "5" })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">Stok Adedi:</p>
+                                <div style="width: 15%; float: left; padding-left: 10px" align="left">
+                                    @Html.EditorFor(model => model.stok_adet, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">İlan Başlangıç Tarihi:</p>
+                                <div style="width: 30%; float: left; padding-left: 10px" align="left">
+                                    @Html.EditorFor(model => model.baslangic_tarihi, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; padding-top: 5px" align="left">İlan Bitiş Tarihi:</p>
+                                <div style="width: 30%; float: left; padding-left: 10px" align="left">
+                                    @Html.EditorFor(model => model.bitis_tarihi, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 20px" align="left">
+                                <div style="width: 30%; float: left;" align="left">
+                                    <input style="background-color:#FB5369;border:1px solid #FB5369; width:200px; height:45px; color:white; font-size:20px;" type="submit" value="Kaydet" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ }

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ihale_uygulamasiModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ihale_hareket_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ihale_id" Type="int" Nullable="false" />
+    <Property Name="musteri_id" Type="int" Nullable="false" />
+    <Property Name="teklif_fiyati" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ihale_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="musteri_id" Type="int" Nullable="false" />
+    <Property Name="urun_kategorisi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="urun_fotografi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="urun_adi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="aciklama" Type="text" Nullable="false" />
+    <Property Name="stok_adet" Type="int" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="date" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="musteri_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="musteri_adi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="musteri_soyadi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="tc" Type="int" />
+    <Property Name="vergi_no" Type="int" />
+    <Property Name="firma_adi" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="adres" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="telefon" Type="int" />
+    <Property Name="e_posta" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_stok_tablosu_musteri_tablosu">
+    <End Role="musteri_tablosu" Type="Self.musteri_tablosu" Multiplicity="1" />
+    <End Role="ihale_tablosu" Type="Self.ihale_tablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteri_tablosu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ihale_tablosu">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ihale_uygulamasiModelStoreContainer">
+    <EntitySet Name="ihale_hareket_tablosu" EntityType="Self.ihale_hareket_tablosu" Schema="ihale_uygulamasi" store:Type="Tables" />
+    <EntitySet Name="ihale_tablosu" EntityType="Self.ihale_tablosu" Schema="ihale_uygulamasi" store:Type="Tables" />
+    <EntitySet Name="musteri_tablosu" EntityType="Self.musteri_tablosu" Schema="ihale_uygulamasi" store:Type="Tables" />
+    <AssociationSet Name="FK_stok_tablosu_musteri_tablosu" Association="Self.FK_stok_tablosu_musteri_tablosu">
+      <End Role="musteri_tablosu" EntitySet="musteri_tablosu" />
+      <End Role="ihale_tablosu" EntitySet="ihale_tablosu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

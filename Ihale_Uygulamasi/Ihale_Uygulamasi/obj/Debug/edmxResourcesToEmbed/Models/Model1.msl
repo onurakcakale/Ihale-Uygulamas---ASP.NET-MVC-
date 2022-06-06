@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ihale_uygulamasiModelStoreContainer" CdmEntityContainer="ihale_uygulamasiEntities1">
+    <EntitySetMapping Name="ihale_hareket_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_hareket_tablosu">
+        <MappingFragment StoreEntitySet="ihale_hareket_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="teklif_fiyati" ColumnName="teklif_fiyati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ihale_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_tablosu">
+        <MappingFragment StoreEntitySet="ihale_tablosu">
+          <ScalarProperty Name="urun_fotografi" ColumnName="urun_fotografi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="urun_kategorisi" ColumnName="urun_kategorisi" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="stok_adet" ColumnName="stok_adet" />
+          <ScalarProperty Name="baslangic_tarihi" ColumnName="baslangic_tarihi" />
+          <ScalarProperty Name="bitis_tarihi" ColumnName="bitis_tarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="musteri_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.musteri_tablosu">
+        <MappingFragment StoreEntitySet="musteri_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="vergi_no" ColumnName="vergi_no" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="e_posta" ColumnName="e_posta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

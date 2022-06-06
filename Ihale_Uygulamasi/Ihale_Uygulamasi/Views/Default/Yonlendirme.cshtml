@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Ihale_Uygulamasi.Models.ihale_hareket_tablosu>
+
+@{
+    ViewBag.Title = "Yonlendirme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+        <div class="iletisim" style="padding-bottom: 150px">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>İlanlarım</b></h1></div>
+
+        <h5 style="text-align: center">Yönlendiriliyorsunuz...</h5>
+        <div>
+            <hr />
+
+                @foreach (var x in Model)
+                 {
+                    @Html.HiddenFor(model => x.id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.HiddenFor(model => x.ihale_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.HiddenFor(model => x.musteri_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.HiddenFor(model => x.teklif_fiyati, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.HiddenFor(model => x.aktif, new { Value = "3" })
+                 }
+            
+            <form name="myForm" id="myForm" asp-action="Yonlendirme" method="POST">
+                <div class="form-actions no-color" align="center">
+                    <input type="submit" value="" class="btn btn-default" />
+                </div>
+            </form>
+
+            <script>
+                function AutoSubmit()
+                {
+                    document.forms[0].submit();
+                }
+
+                window.setInterval("AutoSubmit();", 2000);
+            </script>
+        </div>
+    </div>
+ }

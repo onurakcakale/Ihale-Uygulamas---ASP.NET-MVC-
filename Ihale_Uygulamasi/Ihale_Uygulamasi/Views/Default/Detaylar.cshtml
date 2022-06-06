@@ -1,0 +1,132 @@
+﻿@model List<Ihale_Uygulamasi.Models.ihale_hareket_view>
+
+@{
+    ViewBag.Title = "Detaylar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="iletisim" style="padding-bottom: 250px;">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>İhale Detayı</b></h1></div>
+
+    <div class="orta">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <div>
+                        <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px"><a href="@Url.Action("Ilanlarim", "Default")">Geri Dön</a></h1>
+                    </div>
+
+                    <table class="table" style="align-content:center">
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+                                Adı
+                            </th>
+                            <th>
+                                Soyadı
+                            </th>
+                            <th>
+                                Firma Adı
+                            </th>
+                            <th>
+                                E-Posta
+                            </th>
+                            <th>
+                                Teklifi
+                            </th>
+                            <th>
+                                Sonuç
+                            </th>
+                            <th>
+
+                            </th>          
+                            <th>
+
+                            </th>
+                        </tr>
+
+                        @foreach (var urunler in Model)
+                         {
+                            <tr>
+                                <td>
+                                </td> 
+                                <td>
+                                </td>
+                                <td>
+                                    @urunler.musteri_adi
+                                </td>
+                                <td>
+                                    @urunler.musteri_soyadi
+                                </td>
+                                <td>
+                                    @urunler.firma_adi
+                                </td>
+                                <td>
+                                    @urunler.e_posta
+                                </td>
+                                <td>
+                                    @urunler.teklif_fiyati
+                                </td>
+                                <td>
+                                    @{
+                                        if (urunler.aktif == 2)
+                                        {
+                                            <h8 style="font-weight: bold; color: green">İhale Verildi</h8>
+                                        }
+
+                                        else
+                                        {
+                                            <h8 style="font-weight: bold; color: red">İhale Reddedildi</h8>
+                                        }
+                                     }
+                                </td>
+                                <td style="padding-top: 18px;">
+                                    @{
+                                        if (urunler.aktif == 2)
+                                        {
+                                            <h8 align="left" style="float: right">
+                                                @Html.ActionLink("Puanla", "Puanlama", new { id2 = urunler.musteri_id, adi = urunler.musteri_adi, soyadi = urunler.musteri_soyadi})
+                                            </h8>
+                                        }
+
+                                        else
+                                        { 
+                                        }
+                                    }
+                                </td>       
+                                <td>
+                                    @{
+                                        if (urunler.aktif == 2)
+                                        {
+                                            <div style="width: 50%" align="left">
+                                                
+                                            </div>
+                                        }
+
+                                        else
+                                        { 
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                         }
+                    </table>
+                </div>
+
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

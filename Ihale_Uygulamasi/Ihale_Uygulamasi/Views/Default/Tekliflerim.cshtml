@@ -1,0 +1,112 @@
+﻿@using Ihale_Uygulamasi.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ihale_hareket_view>
+
+@{
+    ViewBag.Title = "Tekliflerim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/GirisYap/GirisYap");
+    }
+}
+
+<div class="iletisim" style="padding-bottom: 150px">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>Tekliflerim</b></h1></div>
+    <div class="orta">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <table class="table">
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+                                Ürün Adı
+                            </th>
+                            <th>
+                                Açıklama
+                            </th>
+                            <th>
+                                Stok Adet
+                            </th>
+                            <th>
+                                Başlangıç Tarihi
+                            </th>
+                            <th>
+                                Bitiş Tarihi
+                            </th>
+                            <th>
+                                Teklifim
+                            </th>
+                            <th>
+                                Durumu
+                            </th>
+                        </tr>
+
+                        @foreach (var urunler in Model)
+                        {
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <img src="@Url.Content(urunler.urun_fotografi)" style="height: 50px">
+                                </td>
+                                <td>
+                                    @urunler.urun_adi
+                                </td>
+                                <td>
+                                    @urunler.aciklama
+                                </td>
+                                <td>
+                                    @urunler.stok_adet
+                                </td>
+                                <td>
+                                    @urunler.baslangic_tarihi.ToLongDateString()
+                                </td>
+                                <td>
+                                    @urunler.bitis_tarihi.ToLongDateString()
+                                </td>
+                                <td>
+                                    @urunler.teklif_fiyati
+                                </td>
+                                <td>
+                                    @{
+                                        if (urunler.aktif == 1)
+                                        {
+                                            <h8 style="font-weight: bold; color: orange">Bekliyor</h8>
+                                        }
+
+                                        else if (urunler.aktif == 2)
+                                        {
+                                            <h8 style="font-weight: bold; color: green">Kabul Edildi</h8>
+                                        }
+
+                                        else if (urunler.aktif == 3)
+                                        {
+                                            <h8 style="font-weight: bold; color: red">Reddedildi</h8>
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                    <div style="float:right; padding-top: 20px; font-size: 20px">
+                        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Tekliflerim", new { sayfa, @class = "pager-list" }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,406 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+div{
+    display: block;
+}
+
+.logo{
+    padding-left: 50px;
+    width: 20%;
+}
+
+#menu{
+    margin: auto;
+    width: 65%;
+}
+
+.sepet{
+    width: 15%;
+    text-align: right;
+}
+
+.top{
+    position: fixed;
+    right: 17px;
+    bottom: 17px;
+    z-index: 99;
+}
+
+nav{
+    background-color: black;
+    width: 100%;
+    z-index: 99;
+}
+
+nav ul li{
+    font-size: 16px;
+    padding-left: 35px;
+    color: white;
+    font-family: sans-serif;
+}
+
+nav ul li a{
+    text-align: center;
+    color: whitesmoke;
+}
+
+nav ul li a:hover{
+    color: #FB5369;
+    text-decoration: none;
+}
+
+.carousel-inner img{
+    width: 100%;
+    height: 100%;
+}
+
+#orta{
+    
+    padding-bottom: 130px;
+    padding-top: 100px;
+    background-color: #f5f5f5;
+}
+
+#ortaleft{
+   padding-top: 90px;
+}
+
+.ortakutu{
+    width: 80%;
+    height: 65%;
+    background-color: white;
+    padding: 20px;
+}
+
+#p9{
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 10px;
+    padding-left: 15px;
+    color: #FB5369;
+}
+
+#p10{
+    font-family: Calibri;
+    font-size: 17px;
+    padding-left: 15px;
+    color: gray;
+}
+
+.ortakutu ul{
+    padding-left: 35px;
+}
+
+.ortakutu ul li{
+    color: gray;
+    font-family: Calibri;
+    font-size: 16px;
+}
+
+#kutucuk{
+    width: 80%;
+    float: left;
+    padding-top: 50px;
+}
+
+#kutuleft{
+    background-color: #08c;
+    border: 1px solid #08c;
+    width: 45%;
+    height: 150px;
+    float: left;
+    margin: 14px;
+    color: white;
+}
+
+#kuturight{
+    background-color: #f04e5f;
+    border: 1px solid #f04e5f;
+    width: 45%;
+    height: 150px;
+    float: left;
+    margin: 14px;
+    color: white;
+}
+
+#kutuleft:hover{
+    background-color: white;
+    border-color: white;
+    color: gray;
+}
+
+#kuturight:hover{
+    background-color: white;
+    border-color: white;
+    color: gray;
+}
+
+#p11{
+    text-align: center;
+    padding-top: 60px;
+    font-weight: bold;
+}
+
+.alt{
+    background-image: url(../images/alt2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+#p2{
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-style: bold;
+    color: white;
+    width: 100%;
+    padding-top: 80px;
+}
+
+#p3{
+    width: 100%;
+    font-size: 24px;
+    font-family: sans-serif;
+    text-align: center;
+    font-style: bold;
+    color: gray;
+}
+
+#x{
+    padding-left: 0;
+}
+
+#y{
+    padding-bottom: 50px;
+}
+
+.left{
+    padding-top: 50px;
+    float: left;
+}
+
+.right{
+    padding-top: 100px;
+}
+
+.kutu{
+    margin: 20px;
+    float: left;
+    background-color: #1e1d1d;
+    border: 1px solid black;
+    width: 45%;
+    height: 250px;
+    color: white;
+    text-align: center;
+}
+
+.resim{
+    margin-top: 40px;
+}
+
+.kutu:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+#p4{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#p5{
+    font-family: Calibri;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer{
+    font-size: 13px;
+    background-image: url(../images/footer.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 7px solid #FB5369;
+    border-bottom: 1px solid #FB5369;
+}
+
+#payment{
+    margin-top: 50px;
+}
+
+#menu_item{
+    color: white;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.clearfix{
+    clear: both;
+}
+
+h3{
+    padding-top: 50px;
+}
+
+.footer h3{
+    color: white;
+}
+
+.footermenu li{
+    padding: 5px;
+    list-style: none;
+    line-height: 22px;
+    border-bottom: 1px dotted #ccc;
+    color: white;
+}
+
+#p6{
+    color: white;
+    font-size: 24px;
+    font-family: Calibri;
+    margin-top: 25px;
+}
+
+#p7{
+    color: white;
+    font-size: 15px;
+    font-family: Calibri;
+}
+
+.item1{
+    list-style-type: none;
+}
+
+.footer2{
+    color: white;
+    font-size: 12px;
+    background-color: black;
+    line-height: 60px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+@media screen and (max-width:1500px){     
+    .logo{
+        padding-left: 0px;
+    }
+    
+    nav ul li{
+        font-size: 15px;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    #orta{
+        padding-top: 35px;
+        padding-bottom: 170px;
+    }
+    
+    #h1{
+        padding-top: 50px;
+    }
+    
+    #kutuleft{
+        width: 95%;
+    }
+    
+    #kuturight{
+        width: 95%;
+    }
+    
+    .left{
+        padding-top: 50px;
+        float: left;
+    }
+    
+    .right{
+        padding-top: 70px;
+        float: left;
+        width: 100%;
+    }
+    
+    .kutu{
+        margin: 5px;
+        font-size: 13.5px;
+    }
+    
+    #logo2{
+        float: left;
+        padding-left: 0;
+    }
+    
+    #p7{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:700px){  
+    #h1{
+        padding-top: 0px;
+    }
+    
+    #orta{
+        padding-top: 0px;
+    }
+    
+    #ortaleft{
+        padding-top: 0;
+    }
+    
+    #ortaright{
+        padding-top: 60px;
+    }
+    
+    .ortakutu{
+        width: 100%;
+    }
+    
+    #kutuleft{
+        margin-left: 45px;
+        width: 100%;
+    }
+    
+    #kuturight{
+        margin-left: 45px;
+        width: 100%;
+    }
+    
+    #image{
+        display: none;
+    }
+    
+    .right{
+        padding-top: 0px;
+    }
+      
+    .kutu{
+        width: 80%;
+        margin: 5px;
+        margin-left: 45px;
+    }
+    
+    #payment{
+        margin-bottom: 20px;
+    }
+    
+    .footer2{
+        padding-bottom: 30px;
+    }
+    
+    #r1{
+        display: none;
+    }
+}

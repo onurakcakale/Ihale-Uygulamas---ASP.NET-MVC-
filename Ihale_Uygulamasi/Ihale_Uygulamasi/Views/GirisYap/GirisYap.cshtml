@@ -1,0 +1,77 @@
+﻿@model Ihale_Uygulamasi.Models.musteri_tablosu
+@{
+    ViewBag.Title = "GirisYap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error
+    {
+        color: darkred;
+    }
+</style>
+
+@using (Html.BeginForm("Authorize", "GirisYap", FormMethod.Post))
+ {
+    <div class="iletisim" style="padding-top:50px; padding-bottom:85px">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-2">
+
+                </div>
+
+                <div class="col-sm-12 col-md-8" style="margin: auto; padding-top: 100px; padding-bottom: 90px;">
+                    <div class="login-sign">
+                        <div style="margin: auto">
+                            <form action="#" method="post">
+                                <div style="align-content:center;">
+                                    <h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px;"><b>Giriş Yap</b></h1>
+                                </div>
+                                <div style="align-content:center;" align="center">
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; margin-top: 50px;">Kullanıcı Adı</p>
+                                    <div style="width: 40%">
+                                        @Html.EditorFor(model => model.kullanici_adi, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.kullanici_adi)
+                                    </div>
+                                </div>
+
+                                <div style="align-content:center;" align="center">
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; margin-top: 30px;">Şifre</p>
+                                    <div style="width: 40%">
+                                        @Html.EditorFor(model => model.sifre, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.sifre)
+                                    </div>
+                                </div>
+
+                                <div style="height:25px; padding-left:300px;" class="login-item">
+                                    <input style="width:14px;height:14px;float:left;margin-top:7px;" class="form-control mr-sm-2" type="checkbox">
+                                    <p id="login-kay1">Şifreyi göster</p>
+                                </div>
+
+                                <div style="float:left; padding-top: 50px; padding-left:300px;" class="login-item">
+                                    <input style="background-color:#FB5369;border:1px solid #FB5369; width:200px; height:45px; color:white; font-size:20px;" type="submit" value="Giriş Yap" class="btn btn-default" />
+                                </div>
+
+                                <div style="float: left; padding-top: 60px; padding-left: 20px;">
+                                    <a style="color:#6B6B6B;" href="#">Şifrenizi Unuttunuz Mu?</a>
+                                </div><br />
+                            </form>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 100px; padding-left: 300px;">
+                        <a style="color:#6B6B6B;text-decoration:underline;font-size:20px;" href="../KayitOl/KayitOl/">Henüz Kayıt Olmadınız Mı?</a>
+                    </div>
+
+                    <div style="padding-top: 30px; padding-left: 300px;">
+                        <label class="field-validation-error" style="color: darkred">@Html.DisplayFor(model => model.GirisYapError)</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+ }

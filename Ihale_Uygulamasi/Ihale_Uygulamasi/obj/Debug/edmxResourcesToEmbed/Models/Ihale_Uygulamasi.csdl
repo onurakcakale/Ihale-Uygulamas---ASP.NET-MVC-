@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ihale_uygulamasiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rol" Type="SByte" />
+  </EntityType>
+  <EntityType Name="ihale_hareket_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="teklif_fiyati" Type="Single" Nullable="false" />
+    <Property Name="aktif" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ihale_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="urun_kategorisi" Type="Int32" Nullable="false" />
+    <Property Name="urun_fotografi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stok_adet" Type="Int32" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="kategori_tablosu" Relationship="Self.FK_ihale_tablosu_kategori_tablosu" FromRole="ihale_tablosu" ToRole="kategori_tablosu" />
+    <NavigationProperty Name="musteri_tablosu" Relationship="Self.FK_stok_tablosu_musteri_tablosu" FromRole="ihale_tablosu" ToRole="musteri_tablosu" />
+  </EntityType>
+  <EntityType Name="kategori_tablosu">
+    <Key>
+      <PropertyRef Name="kategori_id" />
+    </Key>
+    <Property Name="kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kategori_ad" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ihale_tablosu" Relationship="Self.FK_ihale_tablosu_kategori_tablosu" FromRole="kategori_tablosu" ToRole="ihale_tablosu" />
+  </EntityType>
+  <EntityType Name="mesaj_tablosu">
+    <Key>
+      <PropertyRef Name="mesaj_id" />
+    </Key>
+    <Property Name="mesaj_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gonderen_id" Type="Int32" Nullable="false" />
+    <Property Name="alici_id" Type="Int32" Nullable="false" />
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="mesaj" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mesaj_cevap_id" Type="Int32" />
+    <Property Name="yanit" Type="Int32" />
+  </EntityType>
+  <EntityType Name="musteri_puan_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="puan_veren_id" Type="Int32" Nullable="false" />
+    <Property Name="puan_veren_kullanici" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_adi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="puan" Type="Single" Nullable="false" />
+  </EntityType>
+  <EntityType Name="musteri_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteri_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tc" Type="Int32" />
+    <Property Name="vergi_no" Type="Int32" />
+    <Property Name="firma_adi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefon" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="e_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ihale_tablosu" Relationship="Self.FK_stok_tablosu_musteri_tablosu" FromRole="musteri_tablosu" ToRole="ihale_tablosu" />
+  </EntityType>
+  <EntityType Name="puan_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="puan" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ihale_hareket_view">
+    <Key>
+      <PropertyRef Name="ihale_id" />
+      <PropertyRef Name="musteri_id" />
+      <PropertyRef Name="musteri_adi" />
+      <PropertyRef Name="musteri_soyadi" />
+      <PropertyRef Name="puan" />
+      <PropertyRef Name="e_posta" />
+      <PropertyRef Name="urun_fotografi" />
+      <PropertyRef Name="urun_kategorisi" />
+      <PropertyRef Name="urun_adi" />
+      <PropertyRef Name="aciklama" />
+      <PropertyRef Name="stok_adet" />
+      <PropertyRef Name="baslangic_tarihi" />
+      <PropertyRef Name="bitis_tarihi" />
+      <PropertyRef Name="aktif" />
+      <PropertyRef Name="teklif_fiyati" />
+    </Key>
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="puan" Type="Double" Nullable="false" />
+    <Property Name="firma_adi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="e_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_fotografi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_kategorisi" Type="Int32" Nullable="false" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stok_adet" Type="Int32" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="aktif" Type="Int32" Nullable="false" />
+    <Property Name="teklif_fiyati" Type="Single" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ihale_tablosu_view">
+    <Key>
+      <PropertyRef Name="ihale_id" />
+      <PropertyRef Name="urun_fotografi" />
+      <PropertyRef Name="urun_kategorisi" />
+      <PropertyRef Name="urun_adi" />
+      <PropertyRef Name="aciklama" />
+      <PropertyRef Name="stok_adet" />
+      <PropertyRef Name="baslangic_tarihi" />
+      <PropertyRef Name="bitis_tarihi" />
+      <PropertyRef Name="aktif" />
+    </Key>
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" />
+    <Property Name="musteri_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="firma_adi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="urun_fotografi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_kategorisi" Type="Int32" Nullable="false" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stok_adet" Type="Int32" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="aktif" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ilanlarim_tablosu_view">
+    <Key>
+      <PropertyRef Name="id_ihale" />
+      <PropertyRef Name="musteri_id" />
+      <PropertyRef Name="urun_fotografi" />
+      <PropertyRef Name="urun_adi" />
+      <PropertyRef Name="aciklama" />
+      <PropertyRef Name="stok_adet" />
+      <PropertyRef Name="baslangic_tarihi" />
+      <PropertyRef Name="bitis_tarihi" />
+      <PropertyRef Name="aktif" />
+    </Key>
+    <Property Name="id_ihale" Type="Int32" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="urun_fotografi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stok_adet" Type="Int32" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="aktif" Type="Int64" Nullable="false" />
+    <Property Name="toplam_teklif" Type="Int64" />
+  </EntityType>
+  <EntityType Name="mesajlar_view">
+    <Key>
+      <PropertyRef Name="mesaj_id" />
+      <PropertyRef Name="gonderen_id" />
+      <PropertyRef Name="alici_id" />
+      <PropertyRef Name="mesaj" />
+      <PropertyRef Name="yanit" />
+    </Key>
+    <Property Name="mesaj_id" Type="Int32" Nullable="false" />
+    <Property Name="gonderen_id" Type="Int32" Nullable="false" />
+    <Property Name="gonderen_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gonderen_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alici_id" Type="Int32" Nullable="false" />
+    <Property Name="ihale_id" Type="Int32" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mesaj" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mesaj_cevap_id" Type="Int32" />
+    <Property Name="yanit" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teklif_verenler_view">
+    <Key>
+      <PropertyRef Name="musteri_id" />
+      <PropertyRef Name="ihale_id" />
+      <PropertyRef Name="puan" />
+      <PropertyRef Name="aktif" />
+      <PropertyRef Name="teklif_fiyati" />
+    </Key>
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="puan" Type="Double" Nullable="false" />
+    <Property Name="firma_adi" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="e_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aktif" Type="Int32" Nullable="false" />
+    <Property Name="teklif_fiyati" Type="Single" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ihale_tablosu_kategori_tablosu">
+    <End Role="kategori_tablosu" Type="Self.kategori_tablosu" Multiplicity="1" />
+    <End Role="ihale_tablosu" Type="Self.ihale_tablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori_tablosu">
+        <PropertyRef Name="kategori_id" />
+      </Principal>
+      <Dependent Role="ihale_tablosu">
+        <PropertyRef Name="urun_kategorisi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stok_tablosu_musteri_tablosu">
+    <End Role="musteri_tablosu" Type="Self.musteri_tablosu" Multiplicity="1" />
+    <End Role="ihale_tablosu" Type="Self.ihale_tablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteri_tablosu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ihale_tablosu">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ihale_uygulamasiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin_tablosu" EntityType="Self.admin_tablosu" />
+    <EntitySet Name="ihale_hareket_tablosu" EntityType="Self.ihale_hareket_tablosu" />
+    <EntitySet Name="ihale_tablosu" EntityType="Self.ihale_tablosu" />
+    <EntitySet Name="kategori_tablosu" EntityType="Self.kategori_tablosu" />
+    <EntitySet Name="mesaj_tablosu" EntityType="Self.mesaj_tablosu" />
+    <EntitySet Name="musteri_puan_tablosu" EntityType="Self.musteri_puan_tablosu" />
+    <EntitySet Name="musteri_tablosu" EntityType="Self.musteri_tablosu" />
+    <EntitySet Name="puan_tablosu" EntityType="Self.puan_tablosu" />
+    <EntitySet Name="ihale_hareket_view" EntityType="Self.ihale_hareket_view" />
+    <EntitySet Name="ihale_tablosu_view" EntityType="Self.ihale_tablosu_view" />
+    <EntitySet Name="ilanlarim_tablosu_view" EntityType="Self.ilanlarim_tablosu_view" />
+    <EntitySet Name="mesajlar_view" EntityType="Self.mesajlar_view" />
+    <EntitySet Name="teklif_verenler_view" EntityType="Self.teklif_verenler_view" />
+    <AssociationSet Name="FK_ihale_tablosu_kategori_tablosu" Association="Self.FK_ihale_tablosu_kategori_tablosu">
+      <End Role="kategori_tablosu" EntitySet="kategori_tablosu" />
+      <End Role="ihale_tablosu" EntitySet="ihale_tablosu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stok_tablosu_musteri_tablosu" Association="Self.FK_stok_tablosu_musteri_tablosu">
+      <End Role="musteri_tablosu" EntitySet="musteri_tablosu" />
+      <End Role="ihale_tablosu" EntitySet="ihale_tablosu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,28 @@
+﻿@model Ihale_Uygulamasi.Models.ihale_hareket_tablosu
+
+@{
+    ViewBag.Title = "IhaleyiVer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+    <div class="iletisim" style="padding-bottom: 150px">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>İlanlarım</b></h1></div>
+
+        <h5 style="text-align: center">İhaleyi vermek istediğinize emin misiniz?</h5>
+        <div>
+            <hr /> 
+            @Html.HiddenFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.ihale_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.musteri_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.teklif_fiyati, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.aktif, new { Value = "2" })
+        <div class="form-actions no-color" align="center">
+            <input type="submit" value="Evet" class="btn btn-default" /> |
+            @Html.ActionLink("Hayır", "TeklifVerenler", new { id = Model.ihale_id })
+        </div>
+        </div>
+    </div>
+ }

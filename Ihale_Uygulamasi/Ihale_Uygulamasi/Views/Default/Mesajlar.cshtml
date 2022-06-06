@@ -1,0 +1,97 @@
+﻿@using Ihale_Uygulamasi.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<mesajlar_view>
+
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="iletisim" style="padding-bottom: 100px;">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>Mesajlar</b></h1></div>
+
+    <div class="orta">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <table class="table" style="align-content:center">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                Adı
+                            </th>
+                            <th>
+                                Soyadı
+                            </th>
+                            <th>
+                                İhale Adı
+                            </th>
+                            <th style="width: 20%; height: 20%">
+                                Mesajı
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+
+                        @foreach (var urunler in Model)
+                         {
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    @urunler.gonderen_adi
+                                </td>
+                                <td>
+                                    @urunler.gonderen_soyadi
+                                </td>
+                                <td>
+                                    @urunler.urun_adi
+                                </td>
+                                <td>
+                                    @urunler.mesaj
+                                </td>
+                                <td align="center">
+                                    @{
+                                        if (urunler.yanit == 0)
+                                        {
+                                            @Html.ActionLink("Görüntüle", "MesajDetay", new { id = urunler.gonderen_id, id2 = urunler.mesaj_id })
+                                        }
+
+                                        else
+                                        {
+                                            <h8 style="font-weight: bold; color: green">Yanıtlandı: </h8>
+                                        }
+                                    }
+
+                                </td>
+
+                                <td>@Html.Action("_YanitlananMesajlar", "Default", new { id = urunler.mesaj_id })</td>
+                            </tr>
+                            
+                         }
+
+                    </table>
+
+                    <div style="float:right; padding-top: 20px; font-size: 20px">
+                        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Mesajlar", new { sayfa, @class = "pager-list" }))
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

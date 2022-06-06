@@ -1,0 +1,25 @@
+﻿@model Ihale_Uygulamasi.Models.ihale_tablosu
+
+@{
+    ViewBag.Title = "IlaniSil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="iletisim" style="padding-bottom: 150px">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>İlanlarım</b></h1></div>
+
+    <h5 style="text-align: center">Silmek istediğinize emin misiniz?</h5>
+    <div>
+        <hr />
+
+        @using (Html.BeginForm())
+         {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color" align="center">
+                <input type="submit" value="Evet" class="btn btn-default" /> |
+                @Html.ActionLink("Hayır", "Ilanlarim")
+            </div>
+         }
+    </div>
+</div>

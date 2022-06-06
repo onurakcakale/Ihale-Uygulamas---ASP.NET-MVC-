@@ -1,0 +1,9 @@
+﻿@using Ihale_Uygulamasi.Models
+@using PagedList
+@using PagedList.Mvc
+@model List<mesajlar_view>
+
+@foreach (var urunler in Model)
+ {
+    @urunler.mesaj
+ }

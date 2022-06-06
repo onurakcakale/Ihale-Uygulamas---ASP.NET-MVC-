@@ -1,0 +1,57 @@
+﻿@model Ihale_Uygulamasi.Models.mesaj_tablosu
+@{
+    ViewBag.Title = "MesajYanitla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    <div class="iletisim" style="padding-bottom: 100px;">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px;"><b>Mesaj Gönder</b></h1></div>
+        <div class="orta">
+            <div class="container-fluid" id="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-8" style="float: left" align="left">
+                        <div style="align-content:center;">
+                            @Html.HiddenFor(model => model.gonderen_id, new { @Value = Session["id"] })
+                            @Html.HiddenFor(model => model.alici_id, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.HiddenFor(model => model.ihale_id, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.HiddenFor(model => model.mesaj_cevap_id, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+                        <form action="#" method="post">
+                            <div style="width: 100%; float: left;" align="left">
+                                <div style="padding-top: 55px">
+                                    <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px"><a href="@Url.Action("Mesajlar", "Default")">Geri Dön</a></h1>
+                                    <hr />
+                                </div>
+                                <p style="font-family: Muli, sans-serif; font-size: 18px; float: left; font-weight: bold" align="left">Mesajınız:</p>
+                                <div style="width: 100%; float: left;" align="left">
+                                    @Html.TextAreaFor(model => model.mesaj, new { @class = "form-control", cols = "800", rows = "10" })
+                                </div>
+                            </div>
+
+                            <div style="width: 60%; float: left; padding-top: 50px" align="left">
+                                <div style="width: 30%; float: left;" align="left">
+                                    <input style="background-color:#FB5369;border:1px solid #FB5369; width:150px; height:45px; color:white; font-size:20px;" type="submit" value="Gönder" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ }
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

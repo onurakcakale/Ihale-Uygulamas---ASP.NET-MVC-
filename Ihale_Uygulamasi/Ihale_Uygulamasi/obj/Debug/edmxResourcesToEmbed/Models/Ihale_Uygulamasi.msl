@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ihale_uygulamasiModelStoreContainer" CdmEntityContainer="ihale_uygulamasiEntities">
+    <EntitySetMapping Name="admin_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.admin_tablosu">
+        <MappingFragment StoreEntitySet="admin_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ihale_hareket_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_hareket_tablosu">
+        <MappingFragment StoreEntitySet="ihale_hareket_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="teklif_fiyati" ColumnName="teklif_fiyati" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ihale_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_tablosu">
+        <MappingFragment StoreEntitySet="ihale_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="urun_kategorisi" ColumnName="urun_kategorisi" />
+          <ScalarProperty Name="urun_fotografi" ColumnName="urun_fotografi" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="stok_adet" ColumnName="stok_adet" />
+          <ScalarProperty Name="baslangic_tarihi" ColumnName="baslangic_tarihi" />
+          <ScalarProperty Name="bitis_tarihi" ColumnName="bitis_tarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategori_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.kategori_tablosu">
+        <MappingFragment StoreEntitySet="kategori_tablosu">
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mesaj_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.mesaj_tablosu">
+        <MappingFragment StoreEntitySet="mesaj_tablosu">
+          <ScalarProperty Name="mesaj_id" ColumnName="mesaj_id" />
+          <ScalarProperty Name="gonderen_id" ColumnName="gonderen_id" />
+          <ScalarProperty Name="alici_id" ColumnName="alici_id" />
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+          <ScalarProperty Name="mesaj_cevap_id" ColumnName="mesaj_cevap_id" />
+          <ScalarProperty Name="yanit" ColumnName="yanit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="musteri_puan_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.musteri_puan_tablosu">
+        <MappingFragment StoreEntitySet="musteri_puan_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="puan_veren_id" ColumnName="puan_veren_id" />
+          <ScalarProperty Name="puan_veren_kullanici" ColumnName="puan_veren_kullanici" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="puan" ColumnName="puan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="musteri_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.musteri_tablosu">
+        <MappingFragment StoreEntitySet="musteri_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="vergi_no" ColumnName="vergi_no" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="e_posta" ColumnName="e_posta" />
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="puan_tablosu">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.puan_tablosu">
+        <MappingFragment StoreEntitySet="puan_tablosu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="puan" ColumnName="puan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ihale_hareket_view">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_hareket_view">
+        <MappingFragment StoreEntitySet="ihale_hareket_view">
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="puan" ColumnName="puan" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="e_posta" ColumnName="e_posta" />
+          <ScalarProperty Name="urun_fotografi" ColumnName="urun_fotografi" />
+          <ScalarProperty Name="urun_kategorisi" ColumnName="urun_kategorisi" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="stok_adet" ColumnName="stok_adet" />
+          <ScalarProperty Name="baslangic_tarihi" ColumnName="baslangic_tarihi" />
+          <ScalarProperty Name="bitis_tarihi" ColumnName="bitis_tarihi" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+          <ScalarProperty Name="teklif_fiyati" ColumnName="teklif_fiyati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ihale_tablosu_view">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ihale_tablosu_view">
+        <MappingFragment StoreEntitySet="ihale_tablosu_view">
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="urun_fotografi" ColumnName="urun_fotografi" />
+          <ScalarProperty Name="urun_kategorisi" ColumnName="urun_kategorisi" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="stok_adet" ColumnName="stok_adet" />
+          <ScalarProperty Name="baslangic_tarihi" ColumnName="baslangic_tarihi" />
+          <ScalarProperty Name="bitis_tarihi" ColumnName="bitis_tarihi" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilanlarim_tablosu_view">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.ilanlarim_tablosu_view">
+        <MappingFragment StoreEntitySet="ilanlarim_tablosu_view">
+          <ScalarProperty Name="id_ihale" ColumnName="id_ihale" />
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="urun_fotografi" ColumnName="urun_fotografi" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="stok_adet" ColumnName="stok_adet" />
+          <ScalarProperty Name="baslangic_tarihi" ColumnName="baslangic_tarihi" />
+          <ScalarProperty Name="bitis_tarihi" ColumnName="bitis_tarihi" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+          <ScalarProperty Name="toplam_teklif" ColumnName="toplam_teklif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mesajlar_view">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.mesajlar_view">
+        <MappingFragment StoreEntitySet="mesajlar_view">
+          <ScalarProperty Name="mesaj_id" ColumnName="mesaj_id" />
+          <ScalarProperty Name="gonderen_id" ColumnName="gonderen_id" />
+          <ScalarProperty Name="gonderen_adi" ColumnName="gonderen_adi" />
+          <ScalarProperty Name="gonderen_soyadi" ColumnName="gonderen_soyadi" />
+          <ScalarProperty Name="alici_id" ColumnName="alici_id" />
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+          <ScalarProperty Name="mesaj_cevap_id" ColumnName="mesaj_cevap_id" />
+          <ScalarProperty Name="yanit" ColumnName="yanit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teklif_verenler_view">
+      <EntityTypeMapping TypeName="ihale_uygulamasiModel.teklif_verenler_view">
+        <MappingFragment StoreEntitySet="teklif_verenler_view">
+          <ScalarProperty Name="musteri_id" ColumnName="musteri_id" />
+          <ScalarProperty Name="ihale_id" ColumnName="ihale_id" />
+          <ScalarProperty Name="musteri_adi" ColumnName="musteri_adi" />
+          <ScalarProperty Name="musteri_soyadi" ColumnName="musteri_soyadi" />
+          <ScalarProperty Name="puan" ColumnName="puan" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="e_posta" ColumnName="e_posta" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+          <ScalarProperty Name="teklif_fiyati" ColumnName="teklif_fiyati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

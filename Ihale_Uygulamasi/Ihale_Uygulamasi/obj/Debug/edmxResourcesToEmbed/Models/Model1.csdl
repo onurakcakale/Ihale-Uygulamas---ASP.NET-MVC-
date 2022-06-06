@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ihale_uygulamasiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ihale_hareket_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ihale_id" Type="Int32" Nullable="false" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="teklif_fiyati" Type="Single" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ihale_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="urun_kategorisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stok_adet" Type="Int32" Nullable="false" />
+    <Property Name="baslangic_tarihi" Type="DateTime" Nullable="false" />
+    <Property Name="bitis_tarihi" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="musteri_tablosu" Relationship="Self.FK_stok_tablosu_musteri_tablosu" FromRole="ihale_tablosu" ToRole="musteri_tablosu" />
+    <Property Name="urun_fotografi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="musteri_tablosu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteri_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="musteri_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tc" Type="Int32" Nullable="false" />
+    <Property Name="vergi_no" Type="Int32" />
+    <Property Name="firma_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefon" Type="Int32" Nullable="false" />
+    <Property Name="e_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ihale_tablosu" Relationship="Self.FK_stok_tablosu_musteri_tablosu" FromRole="musteri_tablosu" ToRole="ihale_tablosu" />
+  </EntityType>
+  <Association Name="FK_stok_tablosu_musteri_tablosu">
+    <End Role="musteri_tablosu" Type="Self.musteri_tablosu" Multiplicity="1" />
+    <End Role="ihale_tablosu" Type="Self.ihale_tablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteri_tablosu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ihale_tablosu">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ihale_uygulamasiEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ihale_hareket_tablosu" EntityType="Self.ihale_hareket_tablosu" />
+    <EntitySet Name="ihale_tablosu" EntityType="Self.ihale_tablosu" />
+    <EntitySet Name="musteri_tablosu" EntityType="Self.musteri_tablosu" />
+    <AssociationSet Name="FK_stok_tablosu_musteri_tablosu" Association="Self.FK_stok_tablosu_musteri_tablosu">
+      <End Role="musteri_tablosu" EntitySet="musteri_tablosu" />
+      <End Role="ihale_tablosu" EntitySet="ihale_tablosu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

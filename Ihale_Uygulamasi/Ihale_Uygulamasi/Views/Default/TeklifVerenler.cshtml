@@ -1,0 +1,115 @@
+﻿@model List<Ihale_Uygulamasi.Models.teklif_verenler_view>
+
+@{
+    ViewBag.Title = "TeklifVerenler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="iletisim" style="padding-bottom: 250px;">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>Teklif Verenler</b></h1></div>
+
+    <div class="orta">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <div>
+                        <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px"><a href="@Url.Action("Ilanlarim", "Default")">Geri Dön</a></h1>
+                    </div>
+
+                    <table class="table" style="align-content:center">
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+                                Adı
+                            </th>
+                            <th>
+                                Soyadı
+                            </th>
+                            <th>
+                                Puanı
+                            </th>
+                            <th>
+                                Firma Adı
+                            </th>
+                            <th>
+                                E-Posta
+                            </th>
+                            <th>
+                                Teklifi
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+
+                        @foreach (var urunler in Model)
+                         {
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    @urunler.musteri_adi
+                                </td>
+                                <td>
+                                    @urunler.musteri_soyadi
+                                </td>
+                                <td>
+                                    @{
+                                        if (urunler.puan == 0)
+                                        {
+                                            <h8>Puan Yok</h8>
+                                        }
+
+                                        else
+                                        {
+                                            @urunler.puan.ToString("0.0")
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @urunler.firma_adi
+                                </td>
+                                <td>
+                                    @urunler.e_posta
+                                </td>
+                                <td>
+                                    @urunler.teklif_fiyati
+                                </td>
+                                <td align="center">
+                                    @Html.ActionLink("İhaleyi Ver", "IhaleyiVer", new { id1 = urunler.musteri_id, id2 = urunler.ihale_id })
+                                </td>
+                                <td align="center">
+                                    @Html.ActionLink("Mesaj Gönder", "MesajGonder", new { id = urunler.musteri_id, id2 = urunler.ihale_id, id3 = 0 })
+                                </td>
+                            </tr>
+                         }
+                    </table>
+                </div>
+
+                <div class="col-sm-12 col-md-1">
+
+                </div>
+
+            </div>
+        </div>
+    </div>          
+</div>

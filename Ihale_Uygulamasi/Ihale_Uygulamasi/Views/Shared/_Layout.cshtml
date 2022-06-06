@@ -1,0 +1,159 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/styleavukatlik.css">
+    <link rel="stylesheet" href="~/Content/tasarimlar/avukatlik/css/styleavukatlik.css">
+    <link rel="stylesheet" href="~/Content/css/stylehakkimizda.css">
+    <link rel="stylesheet" href="~/Content/css/styleiletisim.css">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <title>AKÇAKALE A.Ş</title>
+    <link rel="icon" href="~/Content/images/logo1.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="logo"><a class="navbar-brand" href="@Url.Action("Index", "Default")"><img src="~/Content/images/logo.png" width="200px"></a></div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="menu">
+            <ul class="navbar-nav">
+                <li><a href="@Url.Action("Index", "Default")">Anasayfa</a></li>
+                <li><a href="@Url.Action("Hakkimizda", "Default")">Hakkımızda</a></li>
+                <li><a href="@Url.Action("IlanVer", "IlanVer")">İlan Ver</a></li>
+                <li><a href="@Url.Action("Ilanlarim", "Default")">İlanlarım</a></li>
+                <li><a href="@Url.Action("Tekliflerim", "Default")">Tekliflerim</a></li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
+                @{
+                    if (Session["id"] == null)
+                    {
+                        <li style="width: 100px; float: right"><a href="@Url.Action("GirisYap", "GirisYap")">Giriş Yap</a></li>
+                        <li style="width: 130px; text-align:left;"><a href="@Url.Action("KayitOl", "KayitOl")">Kayıt Ol</a></li>
+                    }
+
+                    else
+                    {
+                        <li style="width: 100px; text-align:left"><a href="@Url.Action("Mesajlar", "Default")">Mesajlar</a></li>
+                        <li style="width: 100px; text-align:left">@Session["kullaniciadi"].ToString()</li>
+                        <li style="width: 130px; text-align:left;"><a href="@Url.Action("CikisYap", "GirisYap")">Çıkış Yap</a></li>
+                    }
+                }
+            </ul>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Kurumsal</h3>
+                    <ul class="footermenu">
+                        <li class="menuitem">> Hakkımızda</li>
+                        <li class="menuitem">> Bizden Haberler</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5">
+                    <h3>Hizmetlerimiz</h3>
+                    <ul class="footermenu">
+                        <li class="menuitem">> Web Tasarım</li>
+                        <li class="menuitem">> Seo Optimizasyon</li>
+                        <li class="menuitem">> Kurumsal Web Tasarım</li>
+                        <li class="menuitem">> E-Ticaret</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h3>İletişim</h3>
+                    <ul class="footermenu">
+                        <p id="p7">Vatansever Caddesi Hürriyet Mahallesi <br> Sanat Sokak No:3/1 <br> Yakacık/Kartal/istanbul</p>
+                        <img src="~/Content/images/tel.png" class="r1" width="18px" align="left">
+                        <p id="p7"> &nbsp;&nbsp; Tel &nbsp;&nbsp; &nbsp;&nbsp;: <a href="tel: +90 543 502 33 29">0543 502 33 29</a></p>
+                        <p id="p7"><img src="~/Content/images/mail.png" class="r1" width="18px" align="left"> &nbsp;&nbsp; Mail &nbsp;&nbsp;: <a href="mailto:info@onur_akcakale@hotmail.com"> onur_akcakale@hotmail.com</a></p>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-4">
+                    <h3>Etiketler</h3>
+                    <ul id="menu_item" class="item1">
+                        <li class="menu-item" class="a">
+                            <img src="~/Content/images/etiket.png" width="20px"> &nbsp; <i class="fa fa-tags"> Web Tasarım </i>
+                        </li>
+
+                        <li class="menu-item">
+                            <img src="~/Content/images/etiket.png" width="20px"> &nbsp; <i class="fa fa-tags"> SEO </i>
+                        </li>
+
+                        <li class="menu-item">
+                            <img src="~/Content/images/etiket.png" width="20px"> &nbsp; <i class="fa fa-tags"> JQUERY </i>
+                        </li>
+
+                        <li class="menu-item">
+                            <img src="~/Content/images/etiket.png" width="20px"> &nbsp; <i class="fa fa-tags"> Blog </i>
+                        </li>
+
+                        <li class="menu-item">
+                            <img src="~/Content/images/etiket.png" width="20px"> &nbsp; <i class="fa fa-tags"> E-Ticaret </i>
+                        </li>
+                    </ul> <br>
+                </div>
+                <div class="col-md-5" id="payment" align="center">
+                    <img src="~/Content/images/payment.jpg" width="350px">
+                </div>
+
+
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+
+                </div>
+
+                <div class="col-sm-4 col-md-6" align="center">
+                    <p id="p8">2020 © Akçakale Yazılım Bilişim Dan. San. Tic. Ltd. Şti. Tüm Hakları Saklıdır.</p>
+                </div>
+
+                <div class="col-sm-4 col-md-3" align="center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

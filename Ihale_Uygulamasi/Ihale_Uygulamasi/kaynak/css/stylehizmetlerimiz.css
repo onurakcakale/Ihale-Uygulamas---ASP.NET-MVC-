@@ -1,0 +1,101 @@
+#hizmetlerimiz{
+    width: 75%;
+}
+
+.orta{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#head{
+    background-color: #22427d;
+    line-height: 120px;
+}
+
+#baslik{
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+#kart{
+    background-color: white;
+    margin: 20px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    float: left;
+}
+
+#text{
+    line-height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#altbaslik{
+    font-size: 17px;
+    color: #8c8c8c;
+    line-height: 30px;
+}
+
+#altbaslik a{
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+#altbaslik a:hover{
+    color: black;
+    transition: 1s
+}
+
+.incele{
+    background-color: #FB5369;
+    width: 70%;
+    height: 15%;
+    margin-top: 50px;
+    border: 2px solid #FB5369;
+    line-height: 55px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#text a{
+    color: black;
+    text-decoration: none;
+}
+
+#text a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.incele:hover{
+    background-color: white;
+    color: #FB5369;
+    transition: .3s;
+}
+
+.incele a{
+    text-decoration: none;
+    color: white;
+}
+
+.incele a:hover{
+    color: #FB5369;
+    transition: .3s;
+    text-decoration: none;
+}
+
+#p{
+    height: 100%;
+}
+
+@media screen and(max-width:800px)
+{
+    #r1{
+        display: none;
+    }
+}

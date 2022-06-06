@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ihale_Uygulamasi.Models.mesajlar_view>
+
+@{
+    ViewBag.Title = "MesajDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="iletisim" style="padding-bottom: 150px;">
+    <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>Mesajlar</b></h1></div>
+
+    <div class="orta">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-2">
+
+                </div>
+
+                <div class="col-sm-12 col-md-8">
+                    <div>
+                        <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px"><a href="@Url.Action("Mesajlar", "Default")">Geri Dön</a></h1>
+                        <hr />
+                    </div>
+
+                    @foreach (var urunler in Model)
+                    {
+                        <p style="font-weight: bold; font-size: 28px">@urunler.gonderen_adi @urunler.gonderen_soyadi</p>
+
+                        <p style="font-size: 18px">@urunler.mesaj</p>
+
+                        <p style="padding-top: 50px">@Html.ActionLink("Yanıtla", "MesajYanitla", new { id = urunler.gonderen_id, id2 = urunler.ihale_id, id3 = urunler.mesaj_id, id4 = urunler.yanit })</p>
+                    }
+                </div>
+
+                <div class="col-sm-12 col-md-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model Ihale_Uygulamasi.Models.ihale_tablosu
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+
+    <div class="iletisim">
+
+
+        <div class="container-fluid justify-content-center" id="orta2" style="padding-top: 100px; padding-bottom: 100px">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-1" id="kutu2" align="center" style="padding-bottom: 30px; padding-top: 30px; height:100%;">
+
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-5  img-thumbnail" id="kutu2" align="center" style="padding-bottom: 30px; padding-top: 30px; height: 100%;">
+                    <div style="padding-bottom:20px" align="center">
+                        <img src="@Url.Content(Model.urun_fotografi)" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-5" id="kutu2" align="left" style="padding-bottom: 30px; height: 100%; padding-left: 50px">
+                    <div style="padding-bottom:20px">
+                        <p style="font-weight: bold; font-size: 25px">@Model.urun_adi</p>
+                        <p align="justify">@Model.aciklama</p>
+                        <p style="font-weight: bold">Bitiş Tarihi: @Model.bitis_tarihi.ToLongDateString()</p>
+                        <p style="font-weight: bold;">Stok Adet: @Model.stok_adet</p>
+
+
+                        <div align="left" style="padding-top: 20px">
+                            @{
+                                if (Session["id"] != null && (int)Session["id"] == Model.musteri_id)
+                                {
+                                    <p>Teklif Ver</p>
+                                }
+
+                                else if (Session["id"] == null)
+                                {
+                                    <p>@Html.ActionLink("Teklif Ver", "../GirisYap/GirisYap")</p>
+                                }
+
+                                else
+                                {
+                                    <p>@Html.ActionLink("Teklif Ver", "TeklifVer", new { id = @Model.id })</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-1" id="kutu2" align="center" style="padding-bottom: 30px; padding-top: 30px; height: 100%;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+ }

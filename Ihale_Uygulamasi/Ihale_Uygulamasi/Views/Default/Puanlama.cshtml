@@ -1,0 +1,51 @@
+﻿@model Ihale_Uygulamasi.Models.musteri_puan_tablosu
+
+@{
+    ViewBag.Title = "Puanlama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+    <div class="iletisim" style="padding-bottom: 150px">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px; padding-bottom: 50px"><b>Puan Ver</b></h1></div>
+
+        <div class="orta">
+            <div class="container-fluid" id="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-8">
+
+                        <div>
+                            <h1 style="font-family:Muli, sans-serif; text-align:right; font-size: 18px"><a href="@Url.Action("Ilanlarim", "Default")">Geri Dön</a></h1>
+                        </div>
+
+                        <hr />
+
+                        @Html.HiddenFor(model => Model.musteri_adi, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => Model.musteri_soyadi, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <div style="width: 20%; margin: auto; padding-top: 50px; padding-bottom: 50px">
+                            @Html.DropDownListFor(model => Model.puan, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+                        </div>
+
+                        <form name="myForm" id="myForm" asp-action="Puanlama" method="POST">
+                            <div class="form-actions no-color" align="center">
+                                <input type="submit" value="Puan Ver" class="btn btn-default" />
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ }

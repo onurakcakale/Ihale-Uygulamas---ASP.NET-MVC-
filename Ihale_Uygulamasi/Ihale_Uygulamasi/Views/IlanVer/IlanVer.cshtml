@@ -1,0 +1,79 @@
+﻿@model Ihale_Uygulamasi.Models.ihale_tablosu
+
+@{
+    ViewBag.Title = "IlanVer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/GirisYap/GirisYap");
+    }
+}
+
+@using (Html.BeginForm("IlanVer", "Ilanver", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ {
+    <div class="iletisim" style="padding-bottom: 1px;">
+        <div style="align-content:center;"><h1 style="font-family:Muli, sans-serif; text-align:center; font-size: 40px; padding-top: 50px;"><b>İlan Ver</b></h1></div>
+        <div class="orta">
+            <div class="container-fluid" id="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-8" style="float: left" align="left">
+                        <form action="#" method="post">
+                            <div style="align-content:center;">
+                                @Html.HiddenFor(model => model.musteri_id, new { @Value = Session["id"] })
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-2">
+
+                                </div>
+
+                                <div class="col-sm-12 col-md-3">
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 5px" align="left">Ürün Fotoğrafı:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 5px" align="left">Ürün Kategorisi:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 10px" align="left">Ürün Adı:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 5px" align="left">Ürün Detayları:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 140px" align="left">Stok Adedi:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 10px" align="left">İhale Başlangıç Tarihi:</p>
+                                    <p style="font-family: Muli, sans-serif; font-size: 18px; padding-top: 13px" align="left">İhale Bitiş Tarihi:</p>
+
+                                    <div style="width: 60%; float: left; padding-top: 75px" align="left">
+                                        <div style="width: 30%; float: left;" align="left">
+                                            <input style="background-color:#FB5369; border:1px solid #FB5369; width:200px; height:45px; color:white; font-size:20px;" type="submit" value="İlan Ver" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-7">
+                                    <p><input type="file" name="ImageFile" required /></p>
+                                    <p style="width: 40%">@Html.DropDownListFor(model => model.urun_kategorisi, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })</p>
+                                    <p style="width: 75%">@Html.EditorFor(model => model.urun_adi, new { htmlAttributes = new { @class = "form-control" } })</p>
+                                    <p style="width: 75%">@Html.TextAreaFor(model => model.aciklama, new { @class = "form-control", rows = "6" })</p>
+                                    <p style="width: 25%">@Html.EditorFor(model => model.stok_adet, new { htmlAttributes = new { @class = "form-control" } })</p>
+                                    <p style="width: 25%">@Html.EditorFor(model => model.baslangic_tarihi, new { htmlAttributes = new { @class = "form-control" } })</p>
+                                    <p style="width: 25%">@Html.EditorFor(model => model.bitis_tarihi, new { htmlAttributes = new { @class = "form-control" } })</p>
+                                </div>
+
+                                <div class="col-sm-12 col-md-2">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ }
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
